@@ -1,3 +1,12 @@
+# Estudiante
+
+Germán Alberto Rojas Cetina
+
+## Código
+
+202013415
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
