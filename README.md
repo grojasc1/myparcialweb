@@ -1,10 +1,6 @@
 # Estudiante
 
-Germán Alberto Rojas Cetina
-
-## Código
-
-202013415
+Germán Alberto Rojas Cetina - 202013415
 
 
 # Getting Started with Create React App
