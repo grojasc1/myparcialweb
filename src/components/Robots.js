@@ -1,33 +1,36 @@
+import { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Robot from "./Robot";
 
-const { useEffect, useState } = require("react");
+function Robots() {
+  const [robots, setRobots] = useState([]);
 
-function Robot() {
- const [robot, setRobot] = useState([]);
- useEffect(() => {
-   const URL =
-     "https://gist.githubusercontent.com/josejbocanegra/829a853c6c68880477697acd0490cecc/raw/99c31372b4d419a855e53f0e891246f313a71b20/Robot.json";
-   fetch(URL)
-     .then((data) => data.json())
-     .then((data) => {
-       setRobot(data);
-     });
- }, []);
+  useEffect(() => {
+    const URL = "http://localhost:3001/robots"; // Ruta del backend que devuelve la lista de robots
+    fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setRobots(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching robots:", error);
+      });
+  }, []);
 
- return (
-   <div className="container">
-     <h2 className="mt-2">Listado de Robot</h2>
-     <hr></hr>
-     <Row>
-       {robots.map((robot) => (
-         <Col key={robot.id}>
-           <robot robot={robot} />
-         </Col>
-       ))}
-     </Row>
-   </div>
- );
+  return (
+    <div className="container">
+      <h3>Listado de Robots</h3>
+      <hr />
+      <Row>
+        {robots.map((robot) => (
+          <Col key={robot.id} md={4}>
+            <Robot robot={robot} />
+          </Col>
+        ))}
+      </Row>
+    </div>
+  );
 }
 
-export default Robot;
+export default Robots;
