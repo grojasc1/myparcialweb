@@ -111,7 +111,7 @@ const SignInForm = () => {
                             <Button
                                 variant="secondary"
                                 className="ms-2"
-                                style={{ backgroundColor: "red", color: "black" }}
+                                style={{ backgroundColor: "#E75D5D", color: "black" }}
                             >
                                 <FormattedMessage id="Cancel" />
                             </Button>
