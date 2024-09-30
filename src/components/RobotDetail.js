@@ -1,26 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import { Card } from "react-bootstrap";
 
-const RobotDetail = () => {
-  const { robotId } = useParams(); // Obtener el ID del robot desde la URL
-  const [robot, setRobot] = useState(null);
-
-  useEffect(() => {
-    // Hacer una solicitud al backend para obtener el robot por ID
-    const fetchRobot = async () => {
-      const response = await fetch(`http://localhost:3001/robots/${robotId}`);
-      const data = await response.json();
-      setRobot(data);
-    };
-
-    fetchRobot();
-  }, [robotId]);
-
-  if (!robot) {
-    return <p>Cargando detalles del robot...</p>;
-  }
-
+const RobotDetail = ({ robot }) => {
   return (
     <Card style={{ width: "30rem" }}>
       <Card.Img variant="top" src={robot.imagen} alt={robot.nombre} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
@@ -62,50 +62,53 @@ const SignInForm = () => {
     };
 
     return (
-        <div>
-            <h3>Inicio de sesión</h3>
+        <Container>
+            <Row className="justify-content-md-center">
+                <Col md={6}>
+                    <h3>Inicio de sesión</h3>
+                    <Form id="sign-in-form">
+                        <Form.Group className="mb-6" controlId="formBasicUsername">
+                            <Form.Label><b>Nombre de usuario</b></Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder=""
+                                onChange={handleUsernameChange}
+                                value={formValues.username}
+                                isInvalid={!validationStates.usernameState}
+                            />
+                        </Form.Group>
 
-            <Form id="sign-in-form">
-                <Form.Group className="mb-6" controlId="formBasicUsername">
-                    <Form.Label><b>Nombre de usuario</b></Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder=""
-                        onChange={handleUsernameChange}
-                        value={formValues.username}
-                        isInvalid={!validationStates.usernameState}
-                    />
-                </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label><b>Contraseña</b></Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder=""
+                                onChange={handlePasswordChange}
+                                value={formValues.password}
+                                isInvalid={!validationStates.passwordState}
+                            />
+                        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label><b>Contraseña</b></Form.Label>
-                    <Form.Control
-                        type="password"
-                        placeholder=""
-                        onChange={handlePasswordChange}
-                        value={formValues.password}
-                        isInvalid={!validationStates.passwordState}
-                    />
-                </Form.Group>
+                        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>} {/* Mostrar mensaje de error */}
 
-                {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>} {/* Mostrar mensaje de error */}
+                        <Form.Group className="mb-3" controlId="formBasicText">
+                            <Form.Text className="text-muted">
+                                Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers
+                            </Form.Text>
+                        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicText">
-                    <Form.Text className="text-muted">
-                        Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers
-                    </Form.Text>
-                </Form.Group>
-
-                <div className="mb-3">
-                    <Button variant="primary" onClick={clickIngresar}>
-                        Ingresar
-                    </Button>
-                    <Button variant="secondary">
-                        Cancelar
-                    </Button>
-                </div>
-            </Form>
-        </div>
+                        <div className="mb-3">
+                            <Button variant="primary" onClick={clickIngresar}>
+                                Ingresar
+                            </Button>
+                            <Button variant="secondary" className="ms-2">
+                                Cancelar
+                            </Button>
+                        </div>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
