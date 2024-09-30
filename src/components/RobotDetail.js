@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
 
 const RobotDetail = ({ robot }) => {
   return (
@@ -8,19 +9,23 @@ const RobotDetail = ({ robot }) => {
       <Card.Body>
         <Card.Title>{robot.nombre}</Card.Title>
         <Card.Text>
-          <b>Modelo:</b> {robot.modelo}
+          <b>
+            <FormattedMessage id="Model"/>:</b> {robot.modelo}
         </Card.Text>
         <Card.Text>
-          <b>Empresa Fabricante:</b> {robot.empresaFabricante}
+          <b>
+            <FormattedMessage id="ManufacturerCompany"/>:</b> {robot.empresaFabricante}
         </Card.Text>
         <Card.Text>
-          <b>Año de Fabricación:</b> {robot.añoFabricacion}
+          <b>
+            <FormattedMessage id="FabricationYear"/>:</b> {robot.añoFabricacion}
         </Card.Text>
         <Card.Text>
-          <b>Capacidad de Procesamiento:</b> {robot.capacidadProcesamiento}
+          <b>
+            <FormattedMessage id="Processing"/>:</b> {robot.capacidadProcesamiento}
         </Card.Text>
         <Card.Text>
-          <b>Descripción:</b> {robot.humor}
+          <b><FormattedMessage id="Description"/>:</b> {robot.humor}
         </Card.Text>
       </Card.Body>
     </Card>

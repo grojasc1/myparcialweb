@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
 import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
@@ -65,10 +66,14 @@ const SignInForm = () => {
         <Container>
             <Row className="justify-content-md-center">
                 <Col md={6}>
-                    <h3>Inicio de sesión</h3>
+                    <h3>
+                        <FormattedMessage id="SignIn" />
+                    </h3>
                     <Form id="sign-in-form">
                         <Form.Group className="mb-6" controlId="formBasicUsername">
-                            <Form.Label><b>Nombre de usuario</b></Form.Label>
+                            <Form.Label><b>
+                                <FormattedMessage id="UserName" />
+                            </b></Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder=""
@@ -79,7 +84,9 @@ const SignInForm = () => {
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label><b>Contraseña</b></Form.Label>
+                            <Form.Label><b>
+                                <FormattedMessage id="Password" />
+                            </b></Form.Label>
                             <Form.Control
                                 type="password"
                                 placeholder=""
@@ -99,11 +106,16 @@ const SignInForm = () => {
 
                         <div className="mb-3">
                             <Button variant="primary" onClick={clickIngresar}>
-                                Ingresar
+                                <FormattedMessage id="ButtonSignIn" />
                             </Button>
-                            <Button variant="secondary" className="ms-2">
-                                Cancelar
+                            <Button
+                                variant="secondary"
+                                className="ms-2"
+                                style={{ backgroundColor: "red", color: "black" }}
+                            >
+                                <FormattedMessage id="Cancel" />
                             </Button>
+
                         </div>
                     </Form>
                 </Col>

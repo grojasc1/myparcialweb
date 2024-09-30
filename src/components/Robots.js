@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import RobotDetail from "./RobotDetail";
+import { FormattedMessage } from "react-intl";
 
 function Robots() {
   const [robots, setRobots] = useState([]);
@@ -26,16 +27,24 @@ function Robots() {
 
   return (
     <div className="container">
-      <h3>Listado de Robots</h3>
+      <h3>
+        <FormattedMessage id="RobotListTitle" />
+      </h3>
       <Row>
         {/* Columna izquierda con la tabla */}
         <Col md={6}>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th>Modelo</th>
-                <th>Empresa Fabricante</th>
+                <th>
+                  <FormattedMessage id="Name" />
+                </th>
+                <th>
+                  <FormattedMessage id="Model" />
+                </th>
+                <th>
+                  <FormattedMessage id="ManufacturerCompany" />
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -55,7 +64,9 @@ function Robots() {
           {selectedRobot ? (
             <RobotDetail robot={selectedRobot} />
           ) : (
-            <p>Selecciona un robot para ver los detalles</p>
+            <p>
+              <FormattedMessage id="RobotSelectTitle" />
+            </p>
           )}
         </Col>
       </Row>
